@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card mt-5 shadow-sm">
+                <h3 class="card-header bg-primary text-white">{{data['name']}} <img src="http://openweathermap.org/img/w/{{data['weather'][0]['icon']}}.png"></h3>
+                
+                <!--Weather Deatils of the city-->
+
+                <div class="card-body" *ngIf="data">
+                    <p><span class="badge bg-primary">Country Code :</span> <span class="float-end">{{data['sys']['country']}}</span></p>
+                    <p><span class="badge bg-primary">Presure :</span> <span class="float-end">{{data['main']['pressure']}}</span></p>
+                    <p><span class="badge bg-primary">Weather :</span> <span class="float-end">{{data['weather'][0]['description']}}</span></p>
+                    <p><span class="badge bg-primary">Sunrise :</span> <span class="float-end">{{data['sys']['sunrise']}}</span></p>
+                    <p><span class="badge bg-primary">Latitude :</span> <span class="float-end">{{data['coord']['lat']}}</span></p>
+                    <p><span class="badge bg-primary">Langitude :</span> <span class="float-end">{{data['coord']['lon']}}</span></p>
+                    
+                </div>
+
+                <div class="card-footer">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <input type="text" [(ngModel)]="city_name" class="form-control">
+                        </div>
+                        <div class="col-md-4">
+                            <button class="btn btn-outline-primary btn-block" (click)="getWeather();">Get Details</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
